@@ -1,0 +1,29 @@
+:root {
+  --easing: cubic-bezier(0.5, 0, 0.5, 1);
+  --duration: 1.5s;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+.ball {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-color: red;
+
+  animation: slide-right var(--duration) var(--easing) infinite;
+}
+
+// use translate or scale to change size
+// awoid animating changes of width/height, top / bottom
+// as this can lead to whole layour recalculation and is very expensive
+@keyframes slide-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(50vw);
+  }
+}

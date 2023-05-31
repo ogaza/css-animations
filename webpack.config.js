@@ -7,7 +7,8 @@ module.exports = {
   // if there is more than one, then use an array
   entry: {
     index: './src/index.ts',
-    test: './src/test/test.ts'
+    fundamentals: './src/fundamentals/fundamentals.ts',
+    transitions: './src/transitions/transitions.ts'
   },
   //  tell webpack to extract source maps and into our final bundle
   devtool: 'inline-source-map',
@@ -15,7 +16,7 @@ module.exports = {
   //   static: './dist',
   // },
   devServer: {
-    port: 9000
+    port: 10001
   },
   // the path and name of the file that will be generated, and to be referenced in the html file
   // output: {
@@ -45,9 +46,16 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      filename: 'test/index.html',
-      template: 'src/test/index.html',
-      chunks: ['test'],
+      filename: 'fundamentals/index.html',
+      template: 'src/fundamentals/index.html',
+      chunks: ['fundamentals'],
+      inject: true
+    }),
+
+    new HtmlWebpackPlugin({
+      filename: 'transitions/index.html',
+      template: 'src/transitions/index.html',
+      chunks: ['transitions'],
       inject: true
     })
   ],
