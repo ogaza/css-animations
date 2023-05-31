@@ -23,7 +23,10 @@ body {
   // the default function (depending on a browser) is usually 'ease'
   // any way there are properties - like background color
   // for which its best to stick with the default timing function
+  // Same as with transition-duration we can specify different
+  // functions for different properties
   transition-timing-function: ease;
+  // transition-timing-function: ease, linear;
 
   &:hover {
     background-color: blue;
