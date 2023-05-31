@@ -19,6 +19,7 @@ body {
 // use translate or scale to change size
 // awoid animating changes of width/height, top / bottom
 // as this can lead to whole layour recalculation and is very expensive
+// animate the transform and opacity instead of width or height
 @keyframes slide-right {
   from {
     transform: translateX(0);

@@ -8,15 +8,38 @@ body {
 }
 
 .ball {
-  width: 5rem;
-  height: 5rem;
+  width: 3rem;
+  height: 3rem;
+  // width: 5rem;
+  // height: 5rem;
   border-radius: 50%;
   background-color: red;
 
-  transition-property: background-color;
-  transition-duration: 500ms;
+  transition-property: background-color, transform, opacity;
+  // in transitiin duration we may say how long should the transition take
+  // to different css properties. here we have 500ms for background-color,
+  // but 2 s for the transform
+  transition-duration: 500ms, 2s, 4s;
+  // the default function (depending on a browser) is usually 'ease'
+  // any way there are properties - like background color
+  // for which its best to stick with the default timing function
+  transition-timing-function: ease;
 
   &:hover {
     background-color: blue;
+    opacity: 0.2;
+    transform: scale(2);
   }
 }
+
+// .ball-container {
+//   width: 8rem;
+//   height: 2rem;
+//   overflow: hidden;
+
+//   &:hover .ball {
+//     background-color: blue;
+//     opacity: 0.1;
+//     transform: scale(2);
+//   }
+// }
