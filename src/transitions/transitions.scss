@@ -1,10 +1,15 @@
 :root {
   --easing: cubic-bezier(0.5, 0, 0.5, 1);
   --duration: 1.5s;
+
+  --color-gray: #8c97b7;
+  --color-blue: #1c38f1;
+  --color-green: #1fcdb0;
+  --input-height: 3rem;
 }
 
 body {
-  background-color: var(--bg-color);
+  background-color: #f9fbff;
 }
 
 .ball {
@@ -45,14 +50,8 @@ body {
   }
 }
 
-// .ball-container {
-//   width: 8rem;
-//   height: 2rem;
-//   overflow: hidden;
-
-//   &:hover .ball {
-//     background-color: blue;
-//     opacity: 0.1;
-//     transform: scale(2);
-//   }
-// }
+.ball-container {
+  width: 8rem;
+  height: 6rem;
+  overflow: hidden;
+}
