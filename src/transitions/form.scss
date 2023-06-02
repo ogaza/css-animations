@@ -23,6 +23,13 @@
   border: 2px solid var(--color);
   border-radius: 0.25rem;
   outline: none;
+
+  // we change the color of the input smoothly
+  // remeber not to animate things like border-size
+  // which would trigger layout change and would
+  // not be very performant
+  transition-property: border-color;
+  transition-duration: 0.3s;
 }
 
 .ui-button {
@@ -34,6 +41,19 @@
   border-radius: 0.25rem;
   height: var(--input-height);
   background-color: var(--color);
+
+  transition-property: background-color, opacity, transform;
+  transition-duration: 0.3s;
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &:active {
+    // persent user in translate relates to the size of
+    // the element itself not the size of its parent
+    transform: translateY(5%);
+  }
 }
 
 [data-show]:not([data-active]) {
