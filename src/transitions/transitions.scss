@@ -28,10 +28,20 @@ body {
   transition-timing-function: ease;
   // transition-timing-function: ease, linear;
 
+  // there is a shorthand notation for transition functionality
+  // transition: [property] [duration] [timing-function] [delay]
+  // but in fact only important thing is to keep the order of the duration and
+  // the delay. css will figure out the other things
+
   &:hover {
     background-color: blue;
     opacity: 0.2;
     transform: scale(2);
+
+    // we can overwrite all the transition poperties based on element state
+    // for example when an element is hovere we can make the transition delay
+    // transition-delay: 500ms;
+    // transition-property: background-color;
   }
 }
 
