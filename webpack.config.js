@@ -8,6 +8,7 @@ module.exports = {
   entry: {
     index: './src/index.ts',
     fundamentals: './src/fundamentals/fundamentals.ts',
+    keyframes: './src/keyframes/keyframes.ts',
     transitions: './src/transitions/transitions.ts'
   },
   //  tell webpack to extract source maps and into our final bundle
@@ -49,6 +50,13 @@ module.exports = {
       filename: 'fundamentals/index.html',
       template: 'src/fundamentals/index.html',
       chunks: ['fundamentals'],
+      inject: true
+    }),
+
+    new HtmlWebpackPlugin({
+      filename: 'keyframes/index.html',
+      template: 'src/keyframes/index.html',
+      chunks: ['keyframes'],
       inject: true
     }),
 

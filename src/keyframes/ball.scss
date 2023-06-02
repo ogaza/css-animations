@@ -1,0 +1,41 @@
+.ball-container {
+  height: 10rem;
+  width: 10rem;
+
+  --size: 5rem;
+  --translation-size: 5rem;
+}
+
+.ball {
+  background-color: red;
+  height: var(--size);
+  width: var(--size);
+  border-radius: 50%;
+
+  animation: move-on-a-square;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  // animation-delay: 1s;
+  animation-iteration-count: infinite;
+  // animation-direction: alternate;
+  animation-fill-mode: both;
+}
+
+@keyframes move-on-a-square {
+  from,
+  to {
+    transform: none;
+  }
+
+  25% {
+    transform: translateX(var(--translation-size));
+  }
+
+  50% {
+    transform: translate(var(--translation-size), var(--translation-size));
+  }
+
+  75% {
+    transform: translateY(var(--translation-size));
+  }
+}
