@@ -7,6 +7,7 @@ module.exports = {
   // if there is more than one, then use an array
   entry: {
     index: './src/index.ts',
+    choreography: './src/choreography/choreography.ts',
     fundamentals: './src/fundamentals/fundamentals.ts',
     keyframes: './src/keyframes/keyframes.ts',
     transitions: './src/transitions/transitions.ts'
@@ -64,6 +65,13 @@ module.exports = {
       filename: 'transitions/index.html',
       template: 'src/transitions/index.html',
       chunks: ['transitions'],
+      inject: true
+    }),
+
+    new HtmlWebpackPlugin({
+      filename: 'choreography/index.html',
+      template: 'src/choreography/index.html',
+      chunks: ['choreography'],
       inject: true
     })
   ],
