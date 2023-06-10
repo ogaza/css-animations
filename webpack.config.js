@@ -1,17 +1,25 @@
 var path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const parts = ['choreography', 'fundamentals', 'keyframes', 'transitions', 'states'];
+let entry = {
+  index: './src/index.ts'
+};
+const plugins = [
+  new HtmlWebpackPlugin({
+    filename: 'index.html',
+    template: 'src/index.html',
+    chunks: ['index'],
+    inject: true
+  })
+];
+createHtmlPluginsAndEntries();
+
 module.exports = {
   mode: 'development',
   // a string here because there is one file as an entry point
   // if there is more than one, then use an array
-  entry: {
-    index: './src/index.ts',
-    choreography: './src/choreography/choreography.ts',
-    fundamentals: './src/fundamentals/fundamentals.ts',
-    keyframes: './src/keyframes/keyframes.ts',
-    transitions: './src/transitions/transitions.ts'
-  },
+  entry,
   //  tell webpack to extract source maps and into our final bundle
   devtool: 'inline-source-map',
   // devServer: {
@@ -39,42 +47,7 @@ module.exports = {
     //   // by default Webpack does no load .ts and .tsx files so it needs to be told
     extensions: ['*', '.js', '.jsx', '.ts', '.tsx', '.css', '.less', '.png', '.svg', '.json']
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'src/index.html',
-      chunks: ['index'],
-      inject: true
-    }),
-
-    new HtmlWebpackPlugin({
-      filename: 'fundamentals/index.html',
-      template: 'src/fundamentals/index.html',
-      chunks: ['fundamentals'],
-      inject: true
-    }),
-
-    new HtmlWebpackPlugin({
-      filename: 'keyframes/index.html',
-      template: 'src/keyframes/index.html',
-      chunks: ['keyframes'],
-      inject: true
-    }),
-
-    new HtmlWebpackPlugin({
-      filename: 'transitions/index.html',
-      template: 'src/transitions/index.html',
-      chunks: ['transitions'],
-      inject: true
-    }),
-
-    new HtmlWebpackPlugin({
-      filename: 'choreography/index.html',
-      template: 'src/choreography/index.html',
-      chunks: ['choreography'],
-      inject: true
-    })
-  ],
+  plugins,
   module: {
     rules: [
       {
@@ -106,3 +79,17 @@ module.exports = {
     ]
   }
 };
+
+function createHtmlPluginsAndEntries() {
+  parts.forEach((part) => {
+    entry = { ...entry, [part]: `./src/${part}/${part}.ts` };
+    plugins.push(
+      new HtmlWebpackPlugin({
+        filename: `${part}/index.html`,
+        template: `src/${part}/index.html`,
+        chunks: [`${part}`],
+        inject: true
+      })
+    );
+  });
+}
