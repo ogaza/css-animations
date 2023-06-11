@@ -6,9 +6,12 @@ import './ripple';
 var button = document.querySelector('button');
 button.addEventListener('click', handleEvent);
 
-var app = document.querySelector('#app');
-var i = 0;
-var states = ['loading', 'success', 'error'];
+function setState() {
+  var app = document.querySelector('#app');
+  const currentState = app.getAttribute('data-state') ?? 'loading';
+
+  app.setAttribute('data-state', getNewStateFor(currentState));
+}
 
 function handleEvent(e) {
   switch (e.type) {
@@ -18,12 +21,26 @@ function handleEvent(e) {
   }
 }
 
-function setState() {
-  var app = document.querySelector('#app');
+var i = 0;
+function getNewStateFor(currentState) {
+  if (currentState !== 'loading') return machine.states[currentState].on['CLICK'];
 
-  const state = states[i++ % 3];
-  console.log("setting app's state to: ", state);
-  app.setAttribute('data-state', state);
+  if (i++ % 3) return machine.states[currentState].on['CLICK'];
 
-  console.log(app.getAttribute('data-state'));
+  return 'error';
 }
+
+const machine = {
+  initial: 'loading',
+  states: {
+    loading: {
+      on: { CLICK: 'success' }
+    },
+    success: {
+      on: { CLICK: 'loading' }
+    },
+    error: {
+      on: { CLICK: 'loading' }
+    }
+  }
+};
