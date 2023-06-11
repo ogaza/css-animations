@@ -1,0 +1,25 @@
+@property --p {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
+.button {
+  --p: 1;
+  --ripple-radius: calc(var(--p) * 100%);
+  --ripple-opacity: calc((1 - var(--p)) * 0.4);
+
+  cursor: default;
+  transition: 0.5s --p;
+  background-image: radial-gradient(
+    circle at var(--x) var(--y),
+    rgba(0, 0, 0, var(--ripple-opacity)) var(--ripple-radius),
+    transparent 0
+  );
+  //   background-image: radial-gradient(circle, rgba(148, 161, 196, 0.5) var(--p), #00000000 var(--p));
+
+  &:active {
+    --p: 0;
+    transition-duration: 0s;
+  }
+}

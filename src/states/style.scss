@@ -1,0 +1,14 @@
+@import '../styles/base.scss';
+
+:root {
+  --bg-color: lightgray;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: var(--bg-color);
+}
