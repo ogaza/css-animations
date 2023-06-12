@@ -1,6 +1,7 @@
 import './button.scss';
 import './ball.scss';
 import './style.scss';
+import './formAnimations.scss';
 
 var button = document.getElementsByClassName('ui-button')[0];
 button.addEventListener('click', handleEvent);
