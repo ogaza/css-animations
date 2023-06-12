@@ -4,7 +4,7 @@
   initial-value: 0;
 }
 
-.button {
+.ripple {
   --p: 1;
   --ripple-radius: calc(var(--p) * 100%);
   --ripple-opacity: calc((1 - var(--p)) * 0.4);

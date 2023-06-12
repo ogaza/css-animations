@@ -1,17 +1,13 @@
 import './button.scss';
 import './style.scss';
 import './states.scss';
-import './ripple';
+import './ripple.scss';
 
-var button = document.querySelector('button');
+var button = document.querySelector('.button');
 button.addEventListener('click', handleEvent);
 
-function setState() {
-  var app = document.querySelector('#app');
-  const currentState = app.getAttribute('data-state') ?? 'loading';
-
-  app.setAttribute('data-state', getNewStateFor(currentState));
-}
+var rippledEl = document.querySelector<HTMLElement>('.ripple');
+rippledEl.addEventListener('click', ripple);
 
 function handleEvent(e) {
   switch (e.type) {
@@ -19,6 +15,22 @@ function handleEvent(e) {
       setState();
       break;
   }
+}
+
+function ripple(e) {
+  const x = e.clientX;
+  const y = e.clientY;
+  const boundingClientRect = rippledEl.getBoundingClientRect();
+
+  rippledEl.style.setProperty('--y', `${y - boundingClientRect.top}px`);
+  rippledEl.style.setProperty('--x', `${x - boundingClientRect.left}px`);
+}
+
+function setState() {
+  var app = document.querySelector('#app');
+  const currentState = app.getAttribute('data-state') ?? 'loading';
+
+  app.setAttribute('data-state', getNewStateFor(currentState));
 }
 
 var i = 0;
