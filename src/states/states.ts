@@ -1,7 +1,7 @@
-import './button.scss';
-import './style.scss';
-import './states.scss';
-import './ripple.scss';
+import './styles/button.scss';
+import './styles/style.scss';
+import './styles/states.scss';
+import './styles/ripple.scss';
 
 var button = document.querySelector('.button');
 button.addEventListener('click', handleEvent);

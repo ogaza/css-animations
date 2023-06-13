@@ -1,4 +1,4 @@
-import './ripple.scss';
+import './styles/ripple.scss';
 
 var button = document.querySelector('button');
 button.addEventListener('mousedown', handleMouseDown);
