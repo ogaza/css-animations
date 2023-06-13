@@ -1,15 +1,10 @@
 @import '../../styles/base.scss';
 
-:root {
-  --bg-color: lightgray;
-  --input-height: 3rem;
-}
-
 body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1.25rem;
-  background-color: var(--bg-color);
+  height: 15rem;
 }
