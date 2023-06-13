@@ -1,4 +1,4 @@
-import './../styles/style.scss';
+import './../styles/base.scss';
 import './transitions.scss';
 import './form.scss';
 

@@ -1,5 +1,4 @@
-import './styles/style.scss';
+import './styles/base.scss';
 
 const body = document.getElementsByTagName('body')[0];
 console.log(body);
-body.style.backgroundColor = 'beige';

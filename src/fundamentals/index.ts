@@ -1,4 +1,4 @@
-import './../styles/style.scss';
+import './../styles/base.scss';
 import './fundamentals.scss';
 
 document.body.addEventListener('click', handleClick);
