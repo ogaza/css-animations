@@ -1,2 +1,2 @@
 import './../styles/base.scss';
-import './fundamentals.scss';
+import './styles/fundamentals.scss';
