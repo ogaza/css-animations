@@ -82,7 +82,7 @@ module.exports = {
 
 function createHtmlPluginsAndEntries() {
   parts.forEach((part) => {
-    entry = { ...entry, [part]: `./src/${part}/${part}.ts` };
+    entry = { ...entry, [part]: `./src/${part}/index.ts` };
     plugins.push(
       new HtmlWebpackPlugin({
         filename: `${part}/index.html`,

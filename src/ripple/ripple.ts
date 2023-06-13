@@ -1,8 +1,3 @@
-import './ripple';
-import './styles/button.scss';
-import './styles/ripple.scss';
-import './styles/style.scss';
-
 var rippledEl = document.querySelector<HTMLElement>('.ripple');
 rippledEl.addEventListener('mousedown', handleMouseDown);
 rippledEl.addEventListener('touchstart', handleTouchStart);
