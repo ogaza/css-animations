@@ -1,8 +1,8 @@
 import './../styles/style.scss';
-import './fundamentals.scss';
+import './style.scss';
 
 document.body.addEventListener('click', handleClick);
 
 function handleClick(e) {
-  document.body.style.setProperty('--bg-color', 'rgb(203, 204, 142)');
+  document.body.style.setProperty('--bg-color', 'lightblue');
 }
