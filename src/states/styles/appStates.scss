@@ -1,11 +1,4 @@
 #app {
-  width: 15rem;
-  height: 15rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.5rem;
-
   --bg-color: white;
   background-color: var(--bg-color);
   transition: background-color 0.3s;
