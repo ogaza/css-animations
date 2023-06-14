@@ -1,5 +1,5 @@
 import './../styles/base.scss';
-import './styles/style.scss';
+import './index.scss';
 
 document.body.addEventListener('click', handleClick);
 
