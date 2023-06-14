@@ -22,3 +22,62 @@
     transition-duration: 0s;
   }
 }
+
+.ripple-using-after {
+  --duration: 0.5s;
+  --ripple-color: rgba(0, 0, 0, 0.5);
+  --size: 2rem;
+
+  overflow: hidden;
+  position: relative;
+
+  &:after {
+    position: absolute;
+    left: var(--x, 0);
+    top: var(--y, 0);
+
+    background-color: var(--ripple-color);
+    border-radius: 50%;
+    content: ' ';
+    position: absolute;
+    width: var(--size);
+    height: var(--size);
+    opacity: 0;
+
+    animation-duration: var(--duration);
+    animation-fill-mode: forwards;
+  }
+
+  &[data-state='pressed'] {
+    &:after {
+      animation-name: pressed;
+    }
+  }
+
+  &[data-state='clicked'] {
+    &:after {
+      animation-name: ripple;
+    }
+  }
+}
+
+@keyframes pressed {
+  from {
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  to {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 1;
+  }
+}
+
+@keyframes ripple {
+  from {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 1;
+  }
+  to {
+    transform: scale(10);
+  }
+}
