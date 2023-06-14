@@ -54,6 +54,30 @@
   }
 
   will-change: transform;
+
+  &[data-state='subscribe'] .ui-button {
+    span:not([data-show='subscribe']) {
+      display: none;
+    }
+  }
+
+  &[data-state='subscribing'] .ui-button {
+    span:not([data-show='subscribing']) {
+      display: none;
+    }
+  }
+
+  &[data-state='success'] .ui-button {
+    span:not([data-show='success']) {
+      display: none;
+    }
+  }
+
+  &[data-state='error'] .ui-button {
+    span:not([data-show='error']) {
+      display: none;
+    }
+  }
 }
 
 @keyframes slide-up {
