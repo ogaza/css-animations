@@ -1,4 +1,4 @@
-var rippledEl = document.querySelector<HTMLElement>('.ripple');
+var rippledEl = document.querySelector<HTMLElement>('.ripple-using-bg-image');
 rippledEl.addEventListener('mousedown', getHandleMouseDown(rippledEl));
 rippledEl.addEventListener('touchstart', getHandleTouchStart(rippledEl));
 

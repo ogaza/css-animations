@@ -1,32 +1,8 @@
-@property --p {
-  syntax: '<number>';
-  inherits: true;
-  initial-value: 0;
-}
-
-.ripple {
-  --p: 1;
-  --ripple-radius: calc((1 - var(--p)) * 1rem + var(--p) * 100%);
-  --ripple-opacity: calc((1 - var(--p)) * 0.4);
-  transition: 0.5s --p;
-
-  cursor: default;
-  background-image: radial-gradient(
-    circle at var(--x) var(--y),
-    rgba(0, 0, 0, var(--ripple-opacity)) var(--ripple-radius),
-    transparent 0
-  );
-
-  &:active {
-    --p: 0;
-    transition-duration: 0s;
-  }
-}
-
 .ripple-using-after {
   --duration: 0.5s;
   --ripple-color: rgba(0, 0, 0, 0.5);
-  --size: 2rem;
+  --size: 48px;
+  --ripple-size: 5;
 
   overflow: hidden;
   position: relative;
@@ -67,17 +43,17 @@
   }
 
   to {
-    transform: translate(-50%, -50%) scale(1.5);
+    transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
 }
 
 @keyframes ripple {
   from {
-    transform: translate(-50%, -50%) scale(1.5);
+    transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
   to {
-    transform: scale(10);
+    transform: translate(-50%, -50%) scale(var(--ripple-size));
   }
 }
