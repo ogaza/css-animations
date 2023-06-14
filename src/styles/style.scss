@@ -1,0 +1,36 @@
+a {
+  text-decoration: none;
+  display: block;
+  margin: 0;
+}
+
+a,
+a:visited {
+  color: rgb(98, 98, 98);
+}
+
+ul {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.25rem;
+}
+
+li {
+  background-color: rgb(218, 218, 218);
+  border: 1px solid;
+  padding: 0.25rem;
+
+  transition: transform 0.2s;
+  transform: translate(0, 0);
+
+  &:hover {
+    transform: translate(2px, 2px);
+    background-color: rgb(168, 168, 168);
+
+    & a {
+      color: white;
+    }
+  }
+}
