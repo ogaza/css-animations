@@ -4,20 +4,24 @@ import {
   getEventCoordinates
 } from './eventHandlers';
 
-var rippledEl = document.querySelector<HTMLElement>('.ripple-using-after');
+var button = document.querySelector<HTMLElement>('.ripple-using-after');
 
-rippledEl.addEventListener('mousedown', handleEvent);
-rippledEl.addEventListener('mouseup', handleEvent);
-rippledEl.addEventListener('touchstart', handleEvent);
-rippledEl.addEventListener('touchend', handleEvent);
-rippledEl.addEventListener('click', handleEvent);
+const events = ['mousedown', 'mouseup', 'touchstart', 'touchend', 'click'];
+const addEventHandlerToButton = getEventHandlerRegistratorFor(button, handleEvent);
+events.forEach(addEventHandlerToButton);
 
 function handleEvent(e) {
-  setElementDataStateAttributeBasedOnEventType(rippledEl, e.type);
+  setElementDataStateAttributeBasedOnEventType(button, e.type);
 
   if (e.type === 'mouseup' || e.type === 'mouseup') {
     return;
   }
 
-  setEventCoordinatesInElementProperties(rippledEl, getEventCoordinates(e));
+  setEventCoordinatesInElementProperties(button, getEventCoordinates(e));
+}
+
+function getEventHandlerRegistratorFor(htmlElement, handler) {
+  return function registerHandlerFor(event) {
+    htmlElement?.addEventListener(event, handler);
+  };
 }
