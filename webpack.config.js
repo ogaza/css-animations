@@ -1,7 +1,15 @@
 var path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const parts = ['choreography', 'fundamentals', 'keyframes', 'transitions', 'states', 'ripple'];
+const parts = [
+  'choreography',
+  'fundamentals',
+  'keyframes',
+  'transitions',
+  'states',
+  'ripple',
+  'pulse'
+];
 let entry = {
   index: './src/index.ts'
 };
